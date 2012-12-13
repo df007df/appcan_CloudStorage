@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-tab.css">
+    <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+		<link rel="stylesheet" href="css/ui-res.css">
+		<link rel="stylesheet" href="css/ui-anim.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_anim.js">
+        </script>
+
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div id="page_0" class="up ub ub-ver " tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh c-org c-m1 t-wh uof">
+                	<h1 id="title" class="ut ulev0 ut-s tx-c" tabindex="0">　</h1>
+					<div id="header1" class="uabs ub-fh utra">
+		                <h1 id="title" class="ut ulev0 ut-s tx-c t-wh" tabindex="0">aaaa</h1>
+					</div>
+					<div id="header2"  class="uabs ub-fh utra a-mr" >
+		                <h1 id="title" class="ut ulev0 ut-s tx-c t-wh" tabindex="0">bbbb</h1>
+					</div>
+			</div>
+			
+            <!--header结束-->
+			
+        </div>
+    </body>
+    <script>
+    	zy_init();
+		
+		
+        window.uexOnload = function(type){
+			
+        
+        }
+		
+		
+		function loadlogin()
+		{
+			zy_con("content", "login.html", 0, $$("header").offsetHeight);
+		}
+		
+		
+		function loadmsgcontent()
+		{
+			zy_anim_push("header1","a-op");
+			zy_anim_pop("header2","a-mr");
+			zy_con("content", "msg_content.html", 0, $$("header").offsetHeight);
+		}
+		function loadindexcontent()
+		{
+			zy_anim_listen("header1",listen);
+			zy_anim_push("header2","a-mr");
+			zy_anim_pop("header1","a-op");
+			zy_con("content", "index_content.html", 0, $$("header").offsetHeight);
+		}
+		function listen()
+		{
+			uexLog.sendLog("listen anim event "+event.propertyName);
+		}
+    </script>
+</html>

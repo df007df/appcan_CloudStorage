@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-fold.css">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-anim.css">
+        <link rel="stylesheet" href="css/ui-list.css">
+        <link rel="stylesheet" href="css/ui-img.css">
+        <link rel="stylesheet" href="css/p/list.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_anim.js">
+        </script>
+        <script src="js/lib/jquery1.7.2.js">
+        </script>
+        <script src="js/lib/init.js">
+        </script>
+        <script src="js/zy_tmpl.js">
+        </script>
+    </head>
+    <body class="um-vp" ontouchstart id='page'>
+        <!--可折叠区域开始-->
+        <div class="uba uc-n b-gra">
+            <input type="checkbox" class="uhide">
+            <div ontouchstart="zy_touch('btn-act')" onclick="c_list.liveEdit(event);" class="col uc-n t-bla ub uinn ub-ac c-m1 c-gra ulev-1 umh4">
+                <div class="ub-f1 ut-s">
+                    确定
+                </div>
+                <div class="umh1 umw1 ub-img col-icon c-bla uc-a">
+                </div>
+            </div>
+            <div class="uinn  t-bla  us-i c-wh  utra0 ocol-c">
+                <div class='a-op utra'>
+                    Insert Your Component at here; 
+                </div>
+            </div>
+            <input type="checkbox" class="uhide">
+            <div ontouchstart="zy_touch('btn-act')" onclick="c_list.liveEdit(event);" class="col t-bla ub uinn ub-ac c-m1 c-gra col ulev-1 umh4">
+                <div class="ub-f1 ut-s">
+                    确定
+                </div>
+                <div class="umh1 umw1 ub-img col-icon c-bla uc-a">
+                </div>
+            </div>
+            <div class="uinn  t-bla  us-i c-wh  utra0 ocol-c">
+                <div class='a-op utra'>
+                    Insert Your Component at here; 
+                </div>
+            </div>
+            <input type="checkbox" class="uhide">
+            <div ontouchstart="zy_touch('btn-act')" onclick="c_list.liveEdit(event);" class="col uc-n t-bla ub uinn ub-ac c-m1 c-gra ulev-1 umh4">
+                <div class="ub-f1 ut-s">
+                    确定
+                </div>
+                <div class="umh1 umw1 ub-img col-icon c-bla uc-a">
+                </div>
+            </div>
+            <div class="uinn t-bla  us-i c-wh uc-n utra0 ocol-c">
+                <div class='a-op utra'>
+                    Insert Your Component at here; 
+                </div>
+            </div>
+        </div>
+        <!--可折叠区域结束-->
+        <!--块容器开始-->
+        <!--div class="ub  b-gra c-gra c-m2 uinn ubb">
+        <div class="b-gra uc-l1">
+        <div class="umh1 btn-l umw1 c-m1 c-red uba2 b-wh uinl uinn3 uc-a2" >
+        <div class="ub-img res4 umh1 umw1"> </div>
+        </div>
+        </div>
+        <div class="b-gra ub-f1 uinn ">
+        <div class="t-bla ulev-1 ub-f1 tx-l">
+        　　　　　tex.tex
+        　　　　</div>
+        </div>
+        </div-->
+        <!--块容器结束-->
+        <!--按钮开始-->
+        <!--div ontouchstart="zy_touch('btn-act')" onclick='c_list.showEdit()'  class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh">执行</div-->
+        <!--按钮结束-->
+        <!--块容器开始-->
+        <!--块容器结束-->
+    </body>
+    <script>
+        zy_init();
+        
+        window.uexOnload = function(type){
+            if (!type) {
+                uexWindow.setBounce("1");
+                uexWindow.showBounceView("0", "#FFF", "0");
+                uexWindow.showBounceView("1", "#FFF", "0");
+                c_list.getFiles();
+                // c_list.onliveEdit();
+            
+            }
+            
+            //右上交增加编辑按钮
+        
+        
+        
+        }
+        
+        /**
+         *当前页面模版数据
+         *
+         */
+        var tps = {
+            //文件列表模版
+            files: function(){
+                return '<div class="list_div  ub ub-ver  b-wh  ubb b-gra c-gra">' +
+                '<div class="ub-f1 file_list_div">' +           
+                '<div ontouchstart="zy_touch(\'btn-act\')" class="b-gra c-gra  ub  t-bla ub-ac lis ulev-1">' +
+                '<div class="lis-icon ub-img im-${info.extension}"></div>' + 
+                '<div class="ub-f1 ut-s fname"><span class="filename">${info.basename}</span>'+
+				'<div class="infos">${display_ctime} <span class="fsize">${display_size}</span></div>'+
+				'</div>' +
+				
+                
+                //右侧小标题'<div class="tx-r t-blu ulev-1"></div>'+
+                
+                '<div class="c-m1  uinl uc-a2 utra3 us listico" button="edit" onclick="c_list.liveEdit(event)"' +
+                'data-type="${info.extension}" data-name="${info.filename}" data-basename="${info.basename}"></div>' +
+                '</div>' +
+                
+                '</div>' +
+                '<div class="ub-f1 edit_divs utra a-op">' +           
+                '</div>' +
+                '</div>';
+                
+                
+                
+                return '<div class="list_div ub b-gra c-gra c-m2 uinn ubb ub-ver c-m1">' +
+                '<div class="b-gra ub-f1">' +
+                '<div class="umh1 umw1  c-blu1 c-m1 uba2 b-wh uinl uinn3 uc-a2 utra3 ufr" button="edit" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.liveEdit(event)"' +
+                'data-type="${info.extension}" data-name="${info.filename}" data-basename="${info.basename}">' +
+                '<div class="umh1 umw1 col-icon"></div>' +
+                '</div>' +
+                '<div class="uinn t-bla ulev-1 ub-f1 tx-l ulim0">' +
+                '${info.basename} ${display_size}' +
+				'<div>创建时间：${display_ctime} 修改时间：${display_mtime}</div>'+
+                '</div>' +
+                '</div>' +
+                '</div>';
+            },
+            
+            
+            editFile: function(){
+                return '<div class="edit_divs ub-fh"></div>';
+            },
+            
+            
+            h_Open: function(){
+                return '<div class="open_div" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.live_open(event)">打开</div>';
+                
+            },
+            
+            h_Del: function(){
+                return '<div class="del_div" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.live_del(event)">删除</div>';
+                
+            },
+            
+            h_Mov: function(){
+                return '<div class="mov_div" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.live_remove(event)">移动</div>';
+                
+            },
+			
+			h_Rename: function(){
+				return '<div class="rename_div" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.live_rename(event)">重命名</div>';
+			},
+			
+			h_Share: function(){
+				return '<div class="share_div" ontouchstart="zy_touch(\'btn-act\')" onclick="c_list.live_share(event)">分享</div>';
+			}
+			
+            
+            
+            
+        };
+		
+		
+		var filedata = null; //当前文件对象
+        
+        var c_list = {
+            //获取文件列表
+            getFiles: function(){
+                m.postJson(Appdomain + 'home/list', c_list.innerFiles, {
+                    df: 1
+                }, true);
+            },
+            
+            //初始化显示列表
+            innerFiles: function(rdata){
+                if (rdata.state == 1) {
+                
+                    var s = zy_tmpl(tps.files(), rdata.data, zy_tmpl_count(rdata.data));
+                    $('#page').append("<div id='list_p'>" + s + "</div>");
+                }
+                else {
+                
+                }
+                
+                
+                
+            },
+            
+            //显示编辑按钮
+            showEdit: function(){
+                $('#page').toggleClass('edit_divs_1');
+                //zy_anim_push("page", "edit_divs_1");
+            
+            },
+            
+            //点击事件
+            liveEdit: function(e, col){
+                var obj = c.getthis(e);
+				var par = $(obj).parents('.file_list_div').next('.edit_divs');
+				if( par.find('.editp')[0] != undefined ){
+					par.empty();
+					par.addClass('a-op');
+				}else{
+					$('#list_p').find('.edit_divs').empty().addClass('a-op');
+					 var p1  = filedata = new editPanel($(obj));
+               		 p1.add();
+				}
+               
+            },
+			
+			//事件
+		live_open: function ( e ){
+			 var obj = c.getthis(e);
+			  alert('确定打开：' + filedata.getdata().basename);
+			
+		},
+		
+		live_remove: function ( e ){
+			 var obj = c.getthis(e);
+			   alert('确定移动：' + filedata.getdata().basename);
+			
+		},
+		
+		live_del: function ( e ){
+			 var obj = c.getthis(e);
+			 var button = ['确定'];
+			 w.actionSheet("确定删除 "+filedata.getdata().basename+"嘛？" , button , c_list.del );
+			   //alert('确定移动：' + filedata.getdata().basename);
+			
+		},
+		
+		live_rename: function ( e ){
+			 var obj = c.getthis(e);
+			 
+			
+		},
+		
+		//删除文件操作 ajax 
+	    del: function( opId,dataType,data ){
+			if( data == 0){
+				alert( '删除成功' );
+			}
+			
+		} 
+		
+            
+        };
+        
+        
+        //文件编辑面板 类
+        
+        function editPanel(obj){
+            this.HTML = '';
+            this.objdata = obj.data();
+            this.type = this.objdata.type;
+            this.button = obj;
+            this._this = null;
+            this.links_tp = {del:tps.h_Del(),mov:tps.h_Mov(),open:tps.h_Open(),rename:tps.h_Rename(),share:tps.h_Share() };//显示的操作按钮
+			this.links = [];//显示的操作按钮
+        }
+		
+		
+		editPanel.prototype.getdata = function(){
+			return  this.objdata;
+		};
+        
+        //增加面板
+        editPanel.prototype.add = function(){
+            var par = this.button.parents('.list_div:first');
+            //    this._this = par.find('.edit_divs').addClass('opens');
+            //par.append(tps.editFile());
+            
+            this._this = par.find('.edit_divs');
+            
+            
+            switch (this.type) {
+                case 'txt':
+                    this.addlinks('del');
+                    this.addlinks('mov');
+					this.addlinks('rename');
+                    
+                    break;
+                    
+                    
+                default:
+                    this.addlinks('del');
+                    this.addlinks('mov');
+					this.addlinks('rename');
+					this.addlinks('share');
+            }
+			
+			this.display();// 渲染
+			//this.bding();//绑定
+            
+        };
+		
+		//渲染 需要显示的链接
+		editPanel.prototype.display = function( ){
+			var html = "";
+			for (i in this.links ){
+				 html+= this.links_tp[this.links[i]];
+				
+			    }
+			  this.addHtml( "<div class='editp ub ub-ac'>"+html+"</div>" );
+			 
+			  this._this.removeClass('a-op');
+            
+		};
+		
+		//绑定事件
+        editPanel.prototype.bding = function (){
+			var _this = this;
+			this._this.find('.del_div').click(function(){
+                alert('确定删除嘛' + _this.objdata.basename);
+            });
+			
+			 this._this.find('.mov_div').click(function(){
+                alert('确定移动嘛');
+            });
+			
+		};
+		
+		
+	
+		
+		
+		
+		//增加需要的链接
+		editPanel.prototype.addlinks = function( lname ){
+			if( lname !== ''){
+			this.links.push(lname);	
+			}
+
+		};
+        
+        //向面板增加 对象
+        editPanel.prototype.addHtml = function(html){
+            this._this.append(html);
+        };
+        
+        //增加打开 对象
+        editPanel.prototype.add_Open = function(){
+            this.addHtml(tps.h_Open());
+            
+        };
+        
+        //增加删除 对象
+        editPanel.prototype.add_Del = function(){
+            this.addHtml(tps.h_Del());
+            var _this = this;
+            
+            
+            
+        };
+        
+        //增加移动 对象
+        editPanel.prototype.add_Mov = function(){
+            this.addHtml(tps.h_Mov());
+            
+           
+            
+        };
+        
+    </script>
+</html>

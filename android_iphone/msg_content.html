@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+     <script src="js/lib/init.js">
+        </script>
+  </head>
+<body class="um-vp" ontouchstart>
+	<a onclick="uexWindow.evaluateScript('','0',openwin('B'))">打开新窗口B加载B.html</a>
+</body>
+<script>
+zy_init();
+function openwin(name){
+uexWindow.open(name,'0',Appdomain+'home/list',4,100,100,32);
+
+}
+
+window.uexOnload=function(type)
+{
+	if(!type){
+		uexWindow.setBounce("1");
+		uexWindow.showBounceView("0","#FFF","0");
+		uexWindow.showBounceView("1","#FFF","0");
+	}
+}
+</script>
+</html>

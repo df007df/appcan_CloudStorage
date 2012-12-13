@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/lib/jquery1.7.2.js">
+        </script>
+
+        <script src="js/lib/init.js">
+        </script>
+
+    </head>
+    <body class="c-org1 ub-f1" ontouchstart>
+        <!--块容器开始-->
+        <div class="ub uba b-gra c-org c-m1 t-wh uc-a1 ">
+            <div class="ubr b-gra ub-f1 uinn uc-l1">
+                用户名 :<span id='userState'></span><br/>
+				 <div onclick="c_login.close()" >关闭</div>
+            </div>
+        </div>
+        <!--块容器结束-->
+        <div id='login' class='uinn2 '>
+            <!--块容器开始-->
+            <div class="ub ub-ver uba b-gra uc-a1 c-wh">
+                <div class="ubb b-gra uinn uc-t1">
+                    <!--文本开始-->
+                    <div class="ub t-bla ulab ub-ac">
+                        <div class="ulim">
+                            用户名：
+                        </div>
+                        <div class="ub-f1 uinput uinn4">
+                            <input placeholder="hello" type="text" class="uc-a1" id='username'>
+                        </div>
+                    </div><!--文本结束-->
+                </div>
+                <div class="uinn uc-b1">
+                    <!--文本开始-->
+                    <div class="ub t-bla ulab ub-ac">
+                        <div class="ulim">
+                            密码：&nbsp;&nbsp; 
+                        </div>
+                        <div class="ub-f1 uinput uinn4">
+                            <input placeholder="hello" type="text" class="uc-a1" id='password'>
+                        </div>
+                    </div><!--文本结束-->
+                </div>
+            </div><!--块容器结束-->
+            <!--块容器开始-->
+            <div class="ub">
+                <div class="ub-f1 uinn">
+                    <!--按钮开始-->
+                    <div onclick='login();' class="btn uba b-gra uinn5 c-org c-m1 uc-a t-wh">
+                        确定
+                    </div>
+                    <!--按钮结束-->
+                </div>
+                <div class="ub-f1 uinn">
+                    <!--按钮开始-->
+                    <div ontouchstart="zy_touch('btn-act')" class="btn uba b-gra uinn5 c-org c-m1 uc-a t-wh">
+                        注册
+                    </div>
+                    <!--按钮结束-->
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+    </body>
+    <script>
+    	function csize(){
+			
+			
+                zy_con("content", "index_content.html", 0, $$("header").offsetHeight);
+               
+                window.onorientationchange = window.onresize = function(){
+                    zy_resize("content", 0, $$("header").offsetHeight);
+                }
+		}
+		
+    	function closed(){
+		uexWindow.close();	
+		//uexWindow.evaluateScript('root',0,csize());		
+		}
+        
+		
+		
+        zy_init();
+		  window.uexOnload = function(type){
+				cklogin_up();
+				
+				var nt = c.timeN( cklogin_up ,2000);
+				//c.ctimeN(nt);
+        }
+		
+		function cklogin_up(){
+			if ( c.chedkTimeOut() ) {
+	            $('#userState').html('已经登陆').append("<a href='javascript:c.logout();'>退出</a>");
+	            }else{
+				 $('#userState').html('木有登陆');	
+				}
+				
+		}
+        
+        
+        
+        function login(){
+            var uv = $('#username').val();
+            var pv = $('#password').val();
+            m.postJson(Appdomain + 'home/login', c_login.actionlogin, {
+                u: uv,
+                p: pv
+            },true,'登陆中。。。');
+            
+        }
+        
+        
+        //每个页面的单独方法
+        var c_login = {
+            actionlogin: function(rdata){
+                if (rdata.state == 1) {
+                    c.loginSet( rdata );
+                    w.alert('登陆成功啦','登陆成功啦');
+					uexWindow.close();
+                }
+                else {
+                    w.alert('登陆失败','登陆失败');
+                }
+            },
+			
+			close: function(){
+				
+				uexWindow.close();
+				
+			}
+            
+        };
+        
+        
+        function al(json){
+            alert(json);
+        }
+    </script>
+</html>

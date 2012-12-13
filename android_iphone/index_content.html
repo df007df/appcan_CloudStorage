@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-input.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+	
+
+
+    <script src="js/lib/init.js">
+        </script>
+  </head>
+<body class="um-vp" ontouchstart>
+    11111111111Pop Over View
+	<!--按钮开始-->
+<div class="btn uba b-bla uinn2 uinl c-blu c-m2 uc-a1 t-wh" onclick='opend()'>打开</div>
+<!--按钮结束-->
+
+</body>
+<script>
+zy_init();
+
+
+function anim(){
+uexWindow.beginAnimition();
+uexWindow.setAnimitionDelay('1000'); //设定Popover(浮动窗口)动画的延迟执行时间。
+uexWindow.setAnimitionDuration('3000'); //设定Popover(浮动窗口)动画的持续时间。
+uexWindow.setAnimitionRepeatCount('1');//设定Popover(浮动窗口)动画的重复次数。
+//uexWindow.setAnimitionCurve(0);//设定Popover(浮动窗口)的曲线类型。
+uexWindow.setAnimitionAutoReverse( true ); //设定Popover(浮动窗口)是否在动画结束后恢复成动画前的位置或状态。
+uexWindow.makeTranslation("630","0","0");
+//uexWindow.makeScale("1.1","1.1","1.1");//
+//uexWindow.makeRotate('360', '0', '0','-1'); //设定Popover(浮动窗口)的Rotate动画。目前只支持绕Z轴旋转。且android平台旋转后将会恢复原来的状态
+uexWindow.commitAnimition();
+}
+
+function opend(){
+
+uexWindow.toast( 0 , 5 ,'加载中啊~~',0);
+	//w.openW('login2', 'login2.html');
+	
+}
+
+window.uexOnload=function(type)
+{   
+
+	if(!type){
+		uexWindow.setBounce("1");
+		uexWindow.showBounceView("0","#ddd","1");
+		uexWindow.showBounceView("1","red","1");
+	}
+}
+
+</script>
+</html>

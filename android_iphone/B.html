@@ -1,0 +1,56 @@
+<html>
+	 <meta charset="utf-8">
+	<body style="background:#ffffff;">
+		11111111111111111
+		1111111111
+		<a onclick="uexWindow.evaluateScript('','0',closew())">关闭当前窗口</a>
+	</body>
+	
+	<script>
+		function closew(){
+			
+			uexWindow.close(-1);
+		}
+		
+	</script>
+	
+	<script type="text/javascript">
+　　function openpop(){
+　　　　var x = document.getElementById("xx").value;
+　　　　var y = document.getElementById("yy").value;
+　　　　var w = document.getElementById("ww").value;
+　　　　var h = document.getElementById("hh").value;
+　　　　uexWindow.openPopover("pop", "0", "login.html", "", x, y, w, h, "5", "");
+　　 }
+
+　 window.uexOnload=function(){
+　　// uexWindow.evaluatePopoverScript(pop,uexWindow.closePopover("pop"));
+　　 uexWidgetOne.cbError=function(opCode,errorCode,errorInfo){
+　　　alert("errorCode:" + errorCode + "\n"+"errorInfo:" + errorInfo);
+	 }
+	 }
+	 
+	 
+	 function anim(){ //浮动窗口动画
+　　　　uexWindow.beginAnimition();
+　　　　uexWindow.setAnimitionDelay('1000');
+　　　　uexWindow.setAnimitionDuration('2000');
+　　　　uexWindow.setAnimitionRepeatCount('2');
+　　　　uexWindow.setAnimitionAutoReverse('1');
+　　　　uexWindow.makeTranslation("100","100","0");
+　　　　uexWindow.makeScale("1.1","1.1","1.1");
+　　　　uexWindow.makeRotate('360', '0', '0','-1');
+　　　　uexWindow.commitAnimition();
+　　 }
+</script>
+
+
+<span>打开一个浮动框(Popover)</span>
+x：<input class="textbox" id="xx" type="text" value="50">;
+y：<input class="textbox" id="yy" type="text" value="50">
+width：<input class="textbox" id="ww" type="text" value="200">
+height：<input class="textbox" id="hh" type="text" value="400">
+<input class="btn" type="button" value="打开" onclick=openpop();>
+
+<input id="pop" type="button" value="关闭" onclick="uexWindow.closePopover('pop')">
+</html>

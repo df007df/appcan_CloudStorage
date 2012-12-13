@@ -1,0 +1,143 @@
+#list_p .edit_divs_1{
+	opacity:1;
+    margin-left: 0em;
+}
+
+
+body.edit_divs_1 .edit_divs{
+
+}
+
+
+.edit_divs.opens{
+	padding-left:1em;
+	padding-bottom:0em;
+	padding-top:.5em;
+	height:2em;
+	
+}
+
+
+.ocol-c{
+	/*
+padding-left:1em;
+	padding-top:.5em;
+	height:2em;
+*/
+
+display:none;
+
+}
+
+.col-c
+{
+
+    padding:0em;
+    padding-left:1em;
+	height:0em;
+
+}
+
+.listico{
+	padding:0.3em;
+	margin:0em;
+	min-width: 1em;
+	min-height: 1em;
+	border:3px solid #ffffff;
+   	background-color: #4A8DDB;
+   	background-image: url(../images/icons-18-white_13.png);
+}
+
+.openlistico{
+	 background-image: url(../images/icons-18-white_07.png) !important;	
+}
+
+.file_list_div{
+	min-height:3em !important;
+}
+
+.file_list_div > div{
+	padding:1em;
+}
+
+.file_list_div .lis-icon{
+	width: 3em;
+	height: 3em;
+	margin-right: 0.4em;
+	background-image: url(../img/ico/x.png) ;
+}
+
+
+.fname {
+	margin:0em 2em;
+	margin-left:0.5em;
+	
+}
+
+.fname .infos{
+	font-size:0.9em;
+	color:;
+	margin-top: 0.7em;
+}
+
+.file_list_div .filename{
+font-size:1.2em !important;	
+font-weight:600;
+}
+
+
+.fname .infos .fsize{
+	float:right;	
+}
+
+.list_div .editp{
+	font-size:0.8em;
+	padding-left:2em;
+	padding-bottom:0.5em;
+	padding-top:0em;
+	
+}
+
+.list_div .editp div{
+	width: 3.5em;
+	height: 1em;
+	padding: 3.5em 0em 0em 0em;
+	margin:0em 1em;
+	-webkit-background-size:contain;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:top;
+	text-align:center;
+	font-size:0.8em;
+	color:#666666;
+}
+
+.editp .del_div{
+background-image: url(../img/ico/del.png);	
+}
+.editp .open_div{
+background-image: url(../img/ico/del.png);	
+}
+.editp .rename_div{
+background-image: url(../img/ico/rename.png);	
+}
+.editp .mov_div{
+background-image: url(../img/ico/move.png);	
+}
+.editp .share_div{
+background-image: url(../img/ico/sharelinks.png);	
+}
+
+
+/*ico*/
+.im-txt{
+background-image: url(../img/ico/text.ico) !important;
+}
+
+.im-doc{
+background-image: url(../img/ico/docx_win.ico) !important;
+}
+
+.im-file{
+background-image: url(../img/ico/file.png) !important;
+}

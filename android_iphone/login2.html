@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/lib/jquery1.7.2.js">
+        </script>
+
+        <script src="js/lib/init.js">
+        </script>
+
+    </head>
+    <body class="c-org1 ub-f1 c-red" ontouchstart>
+        <!--块容器开始-->
+        <div class="ub uba b-gra c-org c-m1 t-wh uc-a1 ">
+            <div class="ubr b-gra ub-f1 uinn uc-l1">
+                用户名 :<span id='userState'></span>
+            </div>
+        </div>
+        <!--块容器结束-->
+        <div id='login' class='uinn2 '>222222222222
+           <a href='javascript:closed();' >关闭</a>
+		   
+		    <a href='javascript:openn();' >打开</a>
+          
+        </div>
+    </body>
+    <script>
+        zy_init();
+		  window.uexOnload = function(type){
+			
+        }
+		
+		 function openn(){
+
+			 w.openW('login3', 'login3.html');
+			
+		}
+		
+		function closed(){
+		uexWindow.close(-1);
+				
+		}
+        
+   
+        function al(json){
+            alert(json);
+        }
+    </script>
+</html>
